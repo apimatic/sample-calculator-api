@@ -28,46 +28,51 @@
             "in": "path",
             "description": "The operator to apply on the variables",
             "required": true,
-            "style": "simple",
             "schema": {
               "$ref": "#/components/schemas/OperationType"
-            }
+            },
+            "example": "SUM"
           },
           {
             "name": "x",
             "in": "query",
             "description": "The LHS value",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "number",
-              "format": "double"
-            }
+              "format": "double",
+              "description": "Left-hand operand of the expression",
+              "example": 4
+            },
+            "example": 4
           },
           {
             "name": "y",
             "in": "query",
             "description": "The RHS value",
             "required": true,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "number",
-              "format": "double"
-            }
+              "format": "double",
+              "description": "Right-hand operand of the expression",
+              "example": 5
+            },
+            "example": 5
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "The result of the calculation",
             "headers": {},
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "number",
-                  "format": "double"
-                }
+                  "format": "double",
+                  "description": "Result of applying the operation to x and y",
+                  "example": 9
+                },
+                "example": 9
               }
             }
           }
@@ -98,7 +103,7 @@
   "tags": [
     {
       "name": "Simple Calculator",
-      "description": ""
+      "description": "Basic arithmetic on two numbers"
     }
   ]
 }
